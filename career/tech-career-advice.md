@@ -30,7 +30,7 @@ This section is dedicated to `Product Management`, which is—at best—a nebulo
 
 ### Alternative Job Titles
 
- I believe that someone interested in `Product Management`—and in possession of the requisite skills—would be fit for any of the job titles listed below, all of which are in the same [genus](https://en.wikipedia.org/wiki/Genus) if not the same [species](https://en.wikipedia.org/wiki/Species).
+I believe that someone interested in `Product Management`—and in possession of the requisite skills—would be fit for any of the job titles listed below, all of which belong to the same [genus](https://en.wikipedia.org/wiki/Genus) if not the same [species](https://en.wikipedia.org/wiki/Species).
 
 ### Interview Preparation
 
