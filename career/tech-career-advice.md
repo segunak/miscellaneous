@@ -1,6 +1,10 @@
 # Tech Career Advice
 
-This document is a compilation of tech-related carer advice written by myself, [Segun Akinyemi](https://segunakinyemi.com/), which I hope to keep updated regularly.
+![HelloThere](/images/hellothere-obiwan.gif)
+
+This document is a compilation of tech-related career advice written by myself, [Segun Akinyemi](https://segunakinyemi.com/), which I hope to keep updated regularly.
+
+This document is a collection of tech-related career advice that I, [Segun Akinyemi](https://segunakinyemi.com/), intend to update regularly (by the grace of God).
 
 ## Software Engineering
 
