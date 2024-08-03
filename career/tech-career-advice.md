@@ -26,7 +26,7 @@ These are job titles that either mean the same thing or are incredibly similar t
 
 ## Product Management
 
-This section is dedicated to `Product Management`, which is—at best—a nebulous job title. I—the [author](https://www.linkedin.com/in/segunakinyemi/) of this document—am a `Software Engineer`, but I work closely with PMs and have several in my group of friends and mentors. The PM world—where the `P` can mean Product, Program, or Project—is infamous for general ambiguity surrounding what precisely the difference is between those roles that all seem to require the same set of core [skills and competencies](/images/pm-skills.png). In this section, I'm bundling them together to provide advice applicable to any of those roles or their closely related alternatives.
+This section is dedicated to `Product Management`, which is—at best—a nebulous job title. I—the [author](https://www.linkedin.com/in/segunakinyemi/) of this document—am a `Software Engineer`, but I work closely with PMs and have several in my group of friends and mentors. The PM world—where the `P` can mean Product, Program, or Project—is infamous for ambiguity surrounding the difference between those roles that all require the same set of core [skills and competencies](/images/pm-skills.png). In this section, I'm bundling them together to provide advice applicable to any of those roles or their closely related alternatives.
 
 ### Alternative Job Titles
 
