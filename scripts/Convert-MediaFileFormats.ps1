@@ -1,55 +1,51 @@
-# This script assumes ffmpeg is installed on your PATH.
-
 param (
     [string]$desiredImageFormat = "jpg",
     [string]$desiredVideoFormat = "mp4"
 )
 
+Write-Output "=== Script started at $(Get-Date) ==="
+Write-Output "Desired image format: $desiredImageFormat, Desired video format: $desiredVideoFormat"
+
 $timestamp = (Get-Date -Format "yyyyMMdd-HHmmss")
 $outputFolder = "Output-$timestamp"
-New-Item -ItemType Directory -Path $outputFolder
+New-Item -ItemType Directory -Path $outputFolder -Force | Out-Null
+Write-Output "Created output folder: $outputFolder"
 
 $heicFiles = Get-ChildItem -Filter "*.heic"
 $movFiles = Get-ChildItem -Filter "*.mov"
+Write-Output "Found $($heicFiles.Count) HEIC files and $($movFiles.Count) MOV files."
 
 if ($heicFiles.Count -eq 0 -and $movFiles.Count -eq 0) {
-    Write-Host "No HEIC or MOV files found in the current directory."
+    Write-Output "No HEIC or MOV files found in the current directory. Exiting script."
     exit
 }
 
+Add-Type -AssemblyName System.Drawing
 foreach ($file in $heicFiles) {
     $outputFile = Join-Path -Path $outputFolder -ChildPath ($file.BaseName + "." + $desiredImageFormat)
-
-    # Perform the conversion using Windows.Graphics.Imaging
+    Write-Output "Converting $($file.Name) to $desiredImageFormat..."
     try {
-        $stream = [Windows.Storage.Streams.RandomAccessStreamReference]::CreateFromFile($file.FullName).OpenReadAsync().AsTask().Result
-        $decoder = [Windows.Graphics.Imaging.BitmapDecoder]::CreateAsync($stream).AsTask().Result
-        $pixelData = $decoder.GetPixelDataAsync().AsTask().Result.DetachPixelData()
-
-        $encoderStream = [Windows.Storage.Streams.RandomAccessStreamReference]::CreateFromFile($outputFile).OpenAsync([Windows.Storage.FileAccessMode]::ReadWrite).AsTask().Result
-        $encoder = [Windows.Graphics.Imaging.BitmapEncoder]::CreateAsync([Windows.Graphics.Imaging.BitmapEncoder]::JpegEncoderId, $encoderStream).AsTask().Result
-
-        $encoder.SetPixelData($decoder.BitmapPixelFormat, $decoder.BitmapAlphaMode, $decoder.PixelWidth, $decoder.PixelHeight, $decoder.DpiX, $decoder.DpiY, $pixelData)
-        $encoder.FlushAsync().AsTask().Wait()
-
-        Write-Host "Converted $($file.Name) to $desiredImageFormat and saved to $outputFile"
+        $heicImage = [System.Drawing.Image]::FromFile($file.FullName)
+        $heicImage.Save($outputFile, [System.Drawing.Imaging.ImageFormat]::Jpeg)
+        $heicImage.Dispose()
+        Write-Output "Successfully converted $($file.Name) to $outputFile"
     }
     catch {
-        Write-Host "Failed to convert $($file.Name): $($_.Exception.Message)"
+        Write-Output "Error converting $($file.Name): $_"
     }
 }
 
+Write-Output "Starting MOV to $desiredVideoFormat conversion..."
 foreach ($file in $movFiles) {
     $outputFile = Join-Path -Path $outputFolder -ChildPath ($file.BaseName + "." + $desiredVideoFormat)
-    
+    Write-Output "Converting $($file.Name) to $desiredVideoFormat..."
     try {
-        # Use ffmpeg to convert .mov to the desired video format
-        $ffmpegCommand = "ffmpeg -i `"$($file.FullName)`" -qscale 0 `"$outputFile`""
-        Invoke-Expression $ffmpegCommand
-
-        Write-Host "Converted $($file.Name) to $desiredVideoFormat and saved to $outputFile"
+        & ffmpeg -i "$($file.FullName)" "$outputFile" -y
+        Write-Output "Successfully converted $($file.Name) to $outputFile"
     }
     catch {
-        Write-Host "Failed to convert $($file.Name): $($_.Exception.Message)"
+        Write-Output "Error converting $($file.Name): $_"
     }
 }
+
+Write-Output "=== Script completed at $(Get-Date) ==="
