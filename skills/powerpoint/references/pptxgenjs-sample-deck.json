@@ -1,0 +1,88 @@
+{
+  "title": "Agentic AI: From Acronyms to Applications",
+  "subtitle": "A scenario-first tour of modern AI systems",
+  "author": "GitHub Copilot",
+  "theme": {
+    "name": "Crisp Teal",
+    "colors": {
+      "primary": "0F766E",
+      "secondary": "155E75",
+      "accent": "F97316",
+      "background": "F8FAFC",
+      "surface": "FFFFFF",
+      "text": "0F172A",
+      "muted": "64748B",
+      "inverse": "FFFFFF",
+      "line": "CBD5E1"
+    },
+    "fonts": {
+      "heading": "Aptos Display",
+      "body": "Aptos"
+    }
+  },
+  "slides": [
+    {
+      "type": "title",
+      "title": "Agentic AI",
+      "subtitle": "From Acronyms to Applications",
+      "eyebrow": "Scenario workshop",
+      "notes": "Open by setting expectations. This is about judgment, not vocabulary memorization."
+    },
+    {
+      "type": "section",
+      "title": "The Big Shift",
+      "subtitle": "From asking for answers to designing workflows."
+    },
+    {
+      "type": "bullets",
+      "title": "What Makes A System Agentic?",
+      "kicker": "Look for delegation, context, tools, and feedback loops.",
+      "items": [
+        "A goal that persists",
+        "Tools it can use",
+        "Memory or context",
+        "A way to evaluate progress"
+      ],
+      "icon": "FaRoute"
+    },
+    {
+      "type": "twoColumn",
+      "title": "Assistant vs. Agent",
+      "left": {
+        "heading": "Assistant",
+        "items": ["Answers one prompt", "Mostly stateless", "User drives each step"]
+      },
+      "right": {
+        "heading": "Agent",
+        "items": ["Works toward an outcome", "Uses tools", "Plans, checks, and revises"]
+      }
+    },
+    {
+      "type": "process",
+      "title": "A Practical Agent Loop",
+      "steps": [
+        { "title": "Plan", "body": "Break the goal into steps.", "icon": "FaMapSigns" },
+        { "title": "Act", "body": "Call tools and gather evidence.", "icon": "FaTools" },
+        { "title": "Check", "body": "Validate output against the goal.", "icon": "FaCheckCircle" },
+        { "title": "Revise", "body": "Adjust the plan when reality pushes back.", "icon": "FaSyncAlt" }
+      ]
+    },
+    {
+      "type": "chart",
+      "title": "Where Autonomy Helps",
+      "chartType": "bar",
+      "labels": ["Search", "Drafting", "Coding", "Ops"],
+      "series": [{ "name": "Fit", "values": [55, 70, 82, 64] }]
+    },
+    {
+      "type": "quote",
+      "quote": "The skill is not asking the model for magic. The skill is building the loop around it.",
+      "attribution": "Workshop framing"
+    },
+    {
+      "type": "closing",
+      "title": "Design the workflow",
+      "subtitle": "Then let the model help you move through it."
+    }
+  ]
+}

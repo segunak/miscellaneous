@@ -1,0 +1,19 @@
+{
+  "name": "copilot-powerpoint-skill",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local PowerPoint skill assets for polished deck generation with PptxGenJS.",
+  "type": "commonjs",
+  "scripts": {
+    "check:pptxgen": "node scripts/check_pptxgenjs_env.js",
+    "sample:deck": "node scripts/create_pptxgenjs_deck.js --sample references/pptxgenjs-sample-deck.json",
+    "build:sample": "node scripts/create_pptxgenjs_deck.js references/pptxgenjs-sample-deck.json sample-output.pptx"
+  },
+  "dependencies": {
+    "pptxgenjs": "^3.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.3.0",
+    "sharp": "^0.33.5"
+  }
+}
